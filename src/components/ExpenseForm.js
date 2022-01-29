@@ -2,42 +2,51 @@ import { useState } from 'react';
 import './ExpenseForm.css';
 
 const ExpenseForm = () => {
-    // const [enteredTitle, setEnteredTitle] = useState('');
-    // const [enteredAmount, setEnteredAmount] = useState('');
-    // const [enteredDate, setEnteredDate] = useState('');
+    const [enteredTitle, setEnteredTitle] = useState('');
+    const [enteredAmount, setEnteredAmount] = useState('');
+    const [enteredDate, setEnteredDate] = useState('');
 
-    const [userInput, setUserInput] = useState({ // our state object
-        enteredTitle: '',
-        enteredAmount: '',
-        enteredDate: ''
-    });
+    // const [userInput, setUserInput] = useState({ // our state object
+    //     enteredTitle: '',
+    //     enteredAmount: '',
+    //     enteredDate: ''
+    // });
 
 
     const titleChangeHandler = (event) => {
         // get the title the user entered
-        // setEnteredTitle(event.target.value);
-        setUserInput({
-            ...userInput, //copy over userInput Object
-            enteredTitle: event.target.value // override enteredTitle to new title state
-        });
+        setEnteredTitle(event.target.value);
+        // setUserInput({
+        //     ...userInput, //copy over userInput Object
+        //     enteredTitle: event.target.value // override enteredTitle to new title state
+        // }); THIS WAS BAD BC STATE DEPENDS ON PREV STATE
+        // setUserInput((prevState) => {
+        //     return {...prevState, enteredTitle: event.target.value};
+        // });
     };
 
     const amountChangeHandler = (event) => {
         // get the amount the user entered
-        // setEnteredAmount(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredAmount: event.target.value
-        });
+        setEnteredAmount(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredAmount: event.target.value
+        // });
+        // setUserInput((prevState) => {
+        //     return {...prevState, enteredAmount: event.target.value};
+        // });
     };
 
     const dateChangeHandler = (event) => {
         // get the date the user entered
-        // setEnteredDate(event.target.value);
-        setUserInput({
-            ...userInput,
-            enteredDate: event.target.value
-        });
+        setEnteredDate(event.target.value);
+        // setUserInput({
+        //     ...userInput,
+        //     enteredDate: event.target.value
+        // });
+        // setUserInput((prevState) => {
+        //     return {...prevState, enteredDate: event.target.value};
+        // });
     }
 
     return (
