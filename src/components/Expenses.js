@@ -7,7 +7,7 @@ import { useState } from "react/cjs/react.development";
 function Expenses(props) {
   // This component is responsible for rendering all of our expense items from the expenses array, takes expenses array as prop
 
-  const [yearState, changeYearState] = useState('');
+  const [yearState, changeYearState] = useState('2020');
 
   const onSelectYearHandler = (year) => {
     changeYearState(year);
@@ -18,7 +18,7 @@ function Expenses(props) {
 
   return (
     <div>
-    <ExpensesFilter onSelectYear={onSelectYearHandler} />
+    <ExpensesFilter selected={yearState} onSelectYear={onSelectYearHandler} />
     <Card className="expenses">
         <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date}></ExpenseItem>
         <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date}></ExpenseItem>
